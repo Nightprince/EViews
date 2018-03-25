@@ -4,9 +4,9 @@
     <!--Popular attributes-->
     <attr name="es_fontFace" format="enum">
         <enum name="android_default_font" value="0" />
-        <enum name="iran_sans_light" value="1" />
-        <enum name="iransans_ultra_light" value="2" />
-        <enum name="iransans_normal" value="3" />
+        <enum name="iransans_ultra_light" value="1" />
+        <enum name="iran_sans_light" value="2" />
+        <enum name="iransans_medium" value="3" />
     </attr>
     <attr name="es_textFormat" format="enum">
         <enum name="normal" value="0" />
