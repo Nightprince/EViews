@@ -3,9 +3,10 @@
 
     <!--Popular attributes-->
     <attr name="es_fontFace" format="enum">
-        <enum name="iran_sans_light" value="0" />
-        <enum name="iransans_ultra_light" value="1" />
-        <enum name="iransans_normal" value="2" />
+        <enum name="android_default_font" value="0" />
+        <enum name="iran_sans_light" value="1" />
+        <enum name="iransans_ultra_light" value="2" />
+        <enum name="iransans_normal" value="3" />
     </attr>
     <attr name="es_textFormat" format="enum">
         <enum name="normal" value="0" />
@@ -13,7 +14,7 @@
         <enum name="card_number" value="2" />
     </attr>
 
-    <declare-styleable name="EsamTextView">
+    <declare-styleable name="EsTextView">
         <attr name="es_fontFace" />
         <attr name="es_textFormat" />
     </declare-styleable>
