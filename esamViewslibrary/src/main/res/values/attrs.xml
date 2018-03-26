@@ -23,5 +23,10 @@
         <attr name="es_fontFace" />
         <attr name="es_textFormat" />
     </declare-styleable>
+    
+    <declare-styleable name="EsImageView">
+        <attr name="es_placeholder" format="integer" />
+        <attr name="es_erro_placeholderr" format="integer" />
+    </declare-styleable>
 
 </resources>
