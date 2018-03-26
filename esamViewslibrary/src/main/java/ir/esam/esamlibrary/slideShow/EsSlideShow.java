@@ -19,6 +19,7 @@ import ir.esam.esamlibrary.R;
 public class EsSlideShow extends LinearLayout {
 
     private ViewPager mPager;
+    private SlideShowAdapter mAdapter;
 
     public EsSlideShow(Context context) {
         super(context);
@@ -41,9 +42,13 @@ public class EsSlideShow extends LinearLayout {
                 this, true);
 
         mPager = layout.findViewById(R.id.pager);
+        mAdapter = new SlideShowAdapter(((AppCompatActivity) getContext()).getSupportFragmentManager());
 
-        AppCompatActivity activity = (AppCompatActivity) getContext();
-
-        mPager.setAdapter(new SlideShowAdapter(activity.getSupportFragmentManager()));
+        mPager.setAdapter(mAdapter);
     }
+
+    public void addItems(SlideShowItem... items) {
+        mAdapter.addItems(items);
+    }
+
 }

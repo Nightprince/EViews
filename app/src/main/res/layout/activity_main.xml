@@ -9,6 +9,7 @@
     tools:context="ir.esam.esamviews.MainActivity">
 
     <ir.esam.esamlibrary.slideShow.EsSlideShow
+        android:id="@+id/slide_show"
         android:layout_width="match_parent"
         android:layout_height="300dp">
 

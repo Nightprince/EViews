@@ -4,7 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import ir.esam.esamlibrary.SlideShowPageFragment;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by hosseinAmini.
@@ -12,8 +14,16 @@ import ir.esam.esamlibrary.SlideShowPageFragment;
  */
 public class SlideShowAdapter extends FragmentStatePagerAdapter {
 
+    private ArrayList<SlideShowItem> mItems;
+
     public SlideShowAdapter(FragmentManager fm) {
         super(fm);
+        mItems = new ArrayList<>();
+    }
+
+    public void addItems(SlideShowItem... items) {
+        mItems.addAll(new ArrayList<>(Arrays.asList(items)));
+        notifyDataSetChanged();
     }
 
     @Override
@@ -23,6 +33,6 @@ public class SlideShowAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 5;
+        return mItems.size();
     }
 }
