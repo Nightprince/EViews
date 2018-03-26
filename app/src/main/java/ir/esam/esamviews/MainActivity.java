@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<SlideShowItem> items = new ArrayList<>();
 
         for(int i = 0; i < 4; i++) {
-            items.add(new SlideShowItem("adsfsdf"));
+            items.add(new SlideShowItem("http://www.sciencemag.org/sites/default/files/styles/article_main_image_-_1280w__no_aspect_/public/cc_iStock-478639870_16x9.jpg?itok=y1oFCoHB"));
         }
 
         slideShow.addItems(items.get(0));
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         txtTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                slideShow.addItems(new SlideShowItem("alsdjfldfjldsf"));
+                slideShow.addItems(new SlideShowItem("http://www.sciencemag.org/sites/default/files/styles/article_main_image_-_1280w__no_aspect_/public/cc_iStock-478639870_16x9.jpg?itok=y1oFCoHB"));
                 Log.d(TAG, "onClick: ");
             }
         });

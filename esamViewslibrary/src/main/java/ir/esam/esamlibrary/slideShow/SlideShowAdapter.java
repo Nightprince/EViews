@@ -1,5 +1,6 @@
 package ir.esam.esamlibrary.slideShow;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -28,7 +29,9 @@ public class SlideShowAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return new SlideShowPageFragment();
+        SlideShowPageFragment slideShowPageFragment = new SlideShowPageFragment();
+        slideShowPageFragment.setSlideshowItem(mItems.get(position));
+        return slideShowPageFragment;
     }
 
     @Override

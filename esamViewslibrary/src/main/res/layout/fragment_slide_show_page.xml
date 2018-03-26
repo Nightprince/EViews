@@ -3,8 +3,8 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/image"
+    <ir.esam.esamlibrary.EsImageView
+        android:id="@+id/img_slide_show_image"
         android:background="@android:color/holo_blue_light"
         android:layout_width="match_parent"
         android:layout_margin="20dp"

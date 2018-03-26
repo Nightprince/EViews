@@ -30,7 +30,7 @@ public class EsImageView extends android.support.v7.widget.AppCompatImageView {
 
         try {
             mPlaceholder = typedArray.getDrawable(R.styleable.EsImageView_es_placeholder);
-            mErrorPlaceholder = typedArray.getDrawable(R.styleable.EsImageView_es_placeholder_error);
+            mErrorPlaceholder = typedArray.getDrawable(R.styleable.EsImageView_es_error_placeholder);
         } finally {
             typedArray.recycle();
         }
@@ -64,11 +64,13 @@ public class EsImageView extends android.support.v7.widget.AppCompatImageView {
     }
 
     public void setImageFormUrl(String url) {
-        Picasso.get().load(url).placeholder(mPlaceholder).error(mErrorPlaceholder).into(this);
+        Picasso.get().load(url).into(this);
+      //  Picasso.get().load(url).placeholder(mPlaceholder).centerCrop().error(mErrorPlaceholder).into(this);
     }
 
     public void setImageFromFile(String uri) {
-        Picasso.get().load(uri).placeholder(mPlaceholder).error(mErrorPlaceholder).into(this);
+        Picasso.get().load(uri).placeholder(mPlaceholder).centerCrop().error(mErrorPlaceholder)
+                .into(this);
     }
 
 }
