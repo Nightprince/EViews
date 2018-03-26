@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EsamViews.iml" filepath="$PROJECT_DIR$/EsamViews.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esamViewslibrary/esamViewslibrary.iml" filepath="$PROJECT_DIR$/esamViewslibrary/esamViewslibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/esamViewslibrary/esamlibrary.iml" filepath="$PROJECT_DIR$/esamViewslibrary/esamlibrary.iml" />
     </modules>
   </component>

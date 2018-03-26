@@ -6,7 +6,9 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 
 import ir.esam.esamlibrary.methodParam.EsFontFace;
+import ir.esam.esamlibrary.methodParam.EsTextFormat;
 import ir.esam.esamlibrary.utility.FontUtility;
+import ir.esam.esamlibrary.utility.TextUtility;
 
 /**
  * Created by hosseinAmini.
@@ -14,17 +16,12 @@ import ir.esam.esamlibrary.utility.FontUtility;
  */
 public class EsTextView extends android.support.v7.widget.AppCompatTextView {
 
+    private boolean mUseTextFormat;
     private int mFontFace;
     private int mTextFormat;
 
-    //
-    private static final int TEXT_FORMAT_NORMAL = 0;
-    private static final int TEXT_FORMAT_CURRENCY = 1;
-    private static final int TEXT_FORMAT_CARD_NUMBER = 2;
-
     public EsTextView(Context context) {
         super(context);
-
         initialize();
     }
 
@@ -37,7 +34,7 @@ public class EsTextView extends android.support.v7.widget.AppCompatTextView {
             mFontFace = typedArray.getInt(R.styleable.EsTextView_es_fontFace,
                     EsFontFace.IRAN_SANS_LIGHT);
             mTextFormat = typedArray.getInt(R.styleable.EsTextView_es_textFormat,
-                    TEXT_FORMAT_NORMAL);
+                    EsTextFormat.NORMAL);
         } finally {
             typedArray.recycle();
         }
@@ -47,14 +44,13 @@ public class EsTextView extends android.support.v7.widget.AppCompatTextView {
 
     public EsTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
         initialize();
     }
 
     private void initialize() {
-
+        mUseTextFormat = true;
         setFontFace(mFontFace);
-
+        setTextFormat(mTextFormat);
     }
 
     public void setFontFace(@EsFontFace.FontFace int fontFace) {
@@ -74,8 +70,47 @@ public class EsTextView extends android.support.v7.widget.AppCompatTextView {
             }
         }
 
-
     }
 
+    public void setTextFormat(@EsTextFormat.TextFormat int textFormat) {
+        mTextFormat = textFormat;
+        setText(getRawValue());
+    }
 
+    public void addPrefix(String prefix) {
+        String result = String.format("%s %s", getText().toString(), prefix);
+        mUseTextFormat = false;
+        setText(result);
+    }
+
+    public void addSuffix(String suffix) {
+        String result = String.format("%s %s", suffix, getText().toString());
+        mUseTextFormat = false;
+        setText(result);
+    }
+
+    // Todo: Maybe need to get raw value of "Card Number"
+    public String getRawValue() {
+
+        if(mTextFormat == EsTextFormat.CURRENCY) {
+            return String.valueOf(TextUtility.getCurrencyValue(getText().toString()));
+        }
+
+        return getText().toString();
+    }
+
+    // override setText for formatting text
+    @Override
+    public void setText(CharSequence text, BufferType type) {
+        if (mUseTextFormat) {
+            if (mTextFormat == EsTextFormat.CURRENCY) {
+                text = TextUtility.convertToCurrency(text.toString());
+            } else if (mTextFormat == EsTextFormat.CARD_NUMBER) {
+                text = TextUtility.convertToPan(text.toString());
+            }
+        }
+
+        mUseTextFormat = true;
+        super.setText(text, type);
+    }
 }

@@ -7,12 +7,14 @@
     tools:context="ir.esam.esamviews.MainActivity">
 
     <ir.esam.esamlibrary.EsTextView
+        android:id="@+id/txt_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="سلام حسین"
+        android:text="5022291056267287"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:es_textFormat="card_number"
         app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
