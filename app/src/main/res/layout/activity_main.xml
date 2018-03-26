@@ -8,6 +8,12 @@
     android:padding="20dp"
     tools:context="ir.esam.esamviews.MainActivity">
 
+    <ir.esam.esamlibrary.slideShow.EsSlideShow
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+
+    </ir.esam.esamlibrary.slideShow.EsSlideShow>
+
     <ir.esam.esamlibrary.EsTextView
         android:id="@+id/txt_test"
         android:layout_width="wrap_content"
