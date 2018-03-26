@@ -19,4 +19,9 @@
         <attr name="es_textFormat" />
     </declare-styleable>
 
+    <declare-styleable name="EsEditText">
+        <attr name="es_fontFace" />
+        <attr name="es_textFormat" />
+    </declare-styleable>
+
 </resources>
