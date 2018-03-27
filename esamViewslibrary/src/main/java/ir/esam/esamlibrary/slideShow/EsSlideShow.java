@@ -2,6 +2,7 @@ package ir.esam.esamlibrary.slideShow;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -21,6 +22,7 @@ public class EsSlideShow extends LinearLayout {
 
     private SlideShowAdapter mAdapter;
     private EsViewPager.OnItemClickListener mOnItemClickListener;
+    private boolean mIsLastItem;
 
     public EsSlideShow(Context context) {
         super(context);
@@ -42,7 +44,7 @@ public class EsSlideShow extends LinearLayout {
         View layout = LayoutInflater.from(getContext()).inflate(R.layout.es_slide_show,
                 this, true);
 
-        EsViewPager viewPager = layout.findViewById(R.id.pager);
+        final EsViewPager viewPager = layout.findViewById(R.id.pager);
         CircleIndicator indicator = layout.findViewById(R.id.slide_show_indicator);
 
         mAdapter = new SlideShowAdapter(((AppCompatActivity) getContext()).getSupportFragmentManager());

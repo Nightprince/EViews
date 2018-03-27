@@ -15,8 +15,6 @@
         android:id="@+id/slide_show_indicator"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        app:ci_width="7dp"
-        app:ci_height="7dp"
         app:ci_animator="@animator/scale_with_alpha"
         android:layout_alignParentBottom="true"/>
 

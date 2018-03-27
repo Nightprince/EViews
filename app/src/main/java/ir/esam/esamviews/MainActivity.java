@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 slideShow.addItems(new SlideShowItem("http://www.sciencemag.org/sites/default/files/styles/article_main_image_-_1280w__no_aspect_/public/cc_iStock-478639870_16x9.jpg?itok=y1oFCoHB"));
-                Log.d(TAG, "onClick: ");
             }
         });
 
