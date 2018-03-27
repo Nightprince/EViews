@@ -14,6 +14,11 @@
         <enum name="card_number" value="2" />
     </attr>
 
+
+
+
+
+
     <declare-styleable name="EsTextView">
         <attr name="es_fontFace" />
         <attr name="es_textFormat" />
@@ -27,6 +32,16 @@
     <declare-styleable name="EsImageView">
         <attr name="es_placeholder" format="integer" />
         <attr name="es_error_placeholder" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="EsButton">
+        <attr name="android:padding" />
+        <attr name="es_fontFace" />
+        <attr name="es_rippleColor" format="color" />
+        <attr name="es_firstColor" format="color" />
+        <attr name="es_secondColor" format="color" />
+        <attr name="es_cornerRadius" format="integer" />
+        <attr name="es_pressColor" format="color" />
     </declare-styleable>
 
 </resources>

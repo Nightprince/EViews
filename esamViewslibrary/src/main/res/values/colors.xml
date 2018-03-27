@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="es_button_default_color">#2e5dcc</color>
+    <color name="es_button_default_ripple_color">#64000000</color>
+    <color name="es_button_default_press_color">#31000000</color>
+</resources>

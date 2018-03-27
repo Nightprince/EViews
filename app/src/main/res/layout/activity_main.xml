@@ -8,10 +8,18 @@
     android:padding="20dp"
     tools:context="ir.esam.esamviews.MainActivity">
 
+    <ir.esam.esamlibrary.EsButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+
+        android:text="Hello"/>
+
     <ir.esam.esamlibrary.slideShow.EsSlideShow
         android:id="@+id/slide_show"
         android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_marginTop="5dp"
+        android:layout_height="150dp">
 
     </ir.esam.esamlibrary.slideShow.EsSlideShow>
 
