@@ -1,9 +1,7 @@
 package ir.esam.esamlibrary.slideShow;
 
-import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.Nullable;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -22,6 +20,7 @@ import me.relex.circleindicator.CircleIndicator;
 public class EsSlideShow extends LinearLayout {
 
     private SlideShowAdapter mAdapter;
+    private EsViewPager.OnItemClickListener mOnItemClickListener;
 
     public EsSlideShow(Context context) {
         super(context);
@@ -55,7 +54,9 @@ public class EsSlideShow extends LinearLayout {
         viewPager.setOnItemClickListener(new EsViewPager.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                Log.d("TAG", "onItemClick: " + position);
+                if(mOnItemClickListener != null) {
+                    mOnItemClickListener.onItemClick(position);
+                }
             }
         });
     }
@@ -64,4 +65,7 @@ public class EsSlideShow extends LinearLayout {
         mAdapter.addItems(items);
     }
 
+    public void setOnItemClickListenr(EsViewPager.OnItemClickListener onItemClickListener) {
+        mOnItemClickListener = onItemClickListener;
+    }
 }

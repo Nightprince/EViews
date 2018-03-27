@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import ir.esam.esamlibrary.EsEditText;
 import ir.esam.esamlibrary.EsTextView;
+import ir.esam.esamlibrary.EsViewPager;
 import ir.esam.esamlibrary.methodParam.EsTextFormat;
 import ir.esam.esamlibrary.slideShow.EsSlideShow;
 import ir.esam.esamlibrary.slideShow.SlideShowItem;
@@ -48,6 +49,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 slideShow.addItems(new SlideShowItem("http://www.sciencemag.org/sites/default/files/styles/article_main_image_-_1280w__no_aspect_/public/cc_iStock-478639870_16x9.jpg?itok=y1oFCoHB"));
                 Log.d(TAG, "onClick: ");
+            }
+        });
+
+        slideShow.setOnItemClickListenr(new EsViewPager.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Log.d(TAG, "Clicked: " + position);
             }
         });
 
