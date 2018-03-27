@@ -10,7 +10,10 @@
     <ir.esam.esamlibrary.EsToolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="4dp"/>
+        android:elevation="4dp"
+        app:es_left_icon1="@drawable/ic_shopping_cart_black_24dp"
+        app:es_left_icon2="@drawable/ic_shopping_cart_black_24dp"
+        app:es_left_icon3="@drawable/ic_shopping_cart_black_24dp" />
 
     <LinearLayout
         android:layout_width="match_parent"

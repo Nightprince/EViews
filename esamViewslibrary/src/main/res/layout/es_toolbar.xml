@@ -10,31 +10,41 @@
         android:id="@+id/img_left_icon1"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:scaleType="centerInside"/>
+        android:scaleType="centerInside"
+        android:visibility="gone"/>
 
     <ir.esam.esamlibrary.EsImageView
         android:id="@+id/img_left_icon2"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:scaleType="centerInside"/>
+        android:scaleType="centerInside"
+        android:visibility="gone"/>
 
     <ir.esam.esamlibrary.EsImageView
         android:id="@+id/img_left_icon3"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:scaleType="centerInside"/>
+        android:scaleType="centerInside"
+        android:visibility="gone"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
 
     <ir.esam.esamlibrary.EsImageView
         android:id="@+id/img_logo"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_weight="1"
-        android:scaleType="centerInside"/>
+        android:layout_width="120dp"
+        android:background="@color/es_button_default_color"
+        android:layout_height="35dp"
+        android:scaleType="centerInside"
+        android:visibility="visible" />
 
     <ir.esam.esamlibrary.EsImageView
         android:id="@+id/img_right_icon"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:scaleType="centerInside"/>
+        android:src="@drawable/ic_menu_black_24dp"
+        android:scaleType="centerInside" />
 
 </LinearLayout>
