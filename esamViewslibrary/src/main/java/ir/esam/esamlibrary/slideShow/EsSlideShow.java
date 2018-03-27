@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import ir.esam.esamlibrary.EsViewPager;
 import ir.esam.esamlibrary.R;
 import me.relex.circleindicator.CircleIndicator;
 
@@ -42,14 +43,21 @@ public class EsSlideShow extends LinearLayout {
         View layout = LayoutInflater.from(getContext()).inflate(R.layout.es_slide_show,
                 this, true);
 
-        ViewPager pager = layout.findViewById(R.id.pager);
+        EsViewPager viewPager = layout.findViewById(R.id.pager);
         CircleIndicator indicator = layout.findViewById(R.id.slide_show_indicator);
 
         mAdapter = new SlideShowAdapter(((AppCompatActivity) getContext()).getSupportFragmentManager());
 
-        pager.setAdapter(mAdapter);
-        indicator.setViewPager(pager);
+        viewPager.setAdapter(mAdapter);
+        indicator.setViewPager(viewPager);
         mAdapter.registerDataSetObserver(indicator.getDataSetObserver());
+
+        viewPager.setOnItemClickListener(new EsViewPager.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Log.d("TAG", "onItemClick: " + position);
+            }
+        });
     }
 
     public void addItems(SlideShowItem... items) {
