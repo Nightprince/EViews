@@ -8,6 +8,7 @@
     tools:context="ir.esam.esamviews.MainActivity">
 
     <ir.esam.esamlibrary.EsToolbar
+        android:id="@+id/test_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="4dp"

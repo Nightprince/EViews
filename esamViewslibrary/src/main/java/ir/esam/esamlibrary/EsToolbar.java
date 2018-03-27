@@ -15,11 +15,17 @@ import android.view.View;
  * Created by hosseinAmini.
  * EsamViews | Copyrights 2018 Esam.ir Crop.
  */
-public class EsToolbar extends Toolbar {
+public class EsToolbar extends Toolbar implements View.OnClickListener {
+
+    public static final String LEFT_ICON1 = "left_icon_1";
+    public static final String LEFT_ICON2 = "left_icon_2";
+    public static final String LEFT_ICON3 = "left_icon_3";
+    public static final String RIGHT_ICON = "right_icon";
 
     private EsImageView mImgLeftIcon1, mImgLeftIcon2, mImgLeftIcon3, mImgLogo, mImgRightIcon;
 
     private Drawable mLeftIcon1, mLeftIcon2, mLeftIcon3, mLogo, mRightIcon;
+    private OnItemClickListener mOnItemClickListener;
 
     public EsToolbar(Context context) {
         super(context);
@@ -66,36 +72,86 @@ public class EsToolbar extends Toolbar {
         setLogo(mLogo);
         setRightIcon(mRightIcon);
 
+        mImgLeftIcon1.setOnClickListener(this);
+        mImgLeftIcon2.setOnClickListener(this);
+        mImgLeftIcon3.setOnClickListener(this);
+        mImgRightIcon.setOnClickListener(this);
+
         setBackgroundColor(Color.WHITE);
         setContentInsetsAbsolute(0, 0);
     }
 
     public void setLeftIcon1(Drawable icon) {
-        if(icon == null) { return; }
+        if (icon == null) {
+            return;
+        }
         mImgLeftIcon1.setVisibility(VISIBLE);
         mImgLeftIcon1.setImageDrawable(icon);
     }
 
     public void setLeftIcon2(Drawable icon) {
-        if(icon == null) { return; }
+        if (icon == null) {
+            return;
+        }
         mImgLeftIcon2.setVisibility(VISIBLE);
         mImgLeftIcon2.setImageDrawable(icon);
     }
 
     public void setLeftIcon3(Drawable icon) {
-        if(icon == null) { return; }
+        if (icon == null) {
+            return;
+        }
         mImgLeftIcon3.setVisibility(VISIBLE);
         mImgLeftIcon3.setImageDrawable(icon);
     }
 
     public void setLogo(Drawable logo) {
-        if(logo == null) { return; }
+        if (logo == null) {
+            return;
+        }
         mImgLogo.setVisibility(VISIBLE);
         mImgLogo.setImageDrawable(logo);
     }
 
     public void setRightIcon(@NonNull Drawable icon) {
+        if (icon == null) {
+            return;
+        }
         mImgRightIcon.setImageDrawable(icon);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        mOnItemClickListener = onItemClickListener;
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (mOnItemClickListener == null) {
+            return;
+        }
+
+        int id = view.getId();
+        if (id == R.id.img_left_icon1) {
+            mOnItemClickListener.onItemClick(view, LEFT_ICON1);
+            return;
+        }
+        if (id == R.id.img_left_icon2) {
+            mOnItemClickListener.onItemClick(view, LEFT_ICON2);
+            return;
+        }
+        if (id == R.id.img_left_icon3) {
+            mOnItemClickListener.onItemClick(view, LEFT_ICON3);
+            return;
+        }
+
+        if (id == R.id.img_right_icon) {
+            mOnItemClickListener.onItemClick(view, RIGHT_ICON);
+        }
+
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(View view, String item);
     }
 
 }

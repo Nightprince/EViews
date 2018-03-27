@@ -67,7 +67,7 @@ public class EsSlideShow extends LinearLayout {
         mAdapter.addItems(items);
     }
 
-    public void setOnItemClickListenr(EsViewPager.OnItemClickListener onItemClickListener) {
+    public void setOnItemClickListener(EsViewPager.OnItemClickListener onItemClickListener) {
         mOnItemClickListener = onItemClickListener;
     }
 }

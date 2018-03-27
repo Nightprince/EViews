@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import ir.esam.esamlibrary.EsEditText;
 import ir.esam.esamlibrary.EsTextView;
+import ir.esam.esamlibrary.EsToolbar;
 import ir.esam.esamlibrary.EsViewPager;
 import ir.esam.esamlibrary.methodParam.EsTextFormat;
 import ir.esam.esamlibrary.slideShow.EsSlideShow;
@@ -28,6 +29,17 @@ public class MainActivity extends AppCompatActivity {
         textView();
         editText();
         slideShow();
+        toolbar();
+    }
+
+    private void toolbar() {
+        EsToolbar toolbar = findViewById(R.id.test_toolbar);
+        toolbar.setOnItemClickListener(new EsToolbar.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, String item) {
+                Log.d(TAG, "onItemClick: " + item);
+            }
+        });
     }
 
     private void slideShow() {
@@ -51,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        slideShow.setOnItemClickListenr(new EsViewPager.OnItemClickListener() {
+        slideShow.setOnItemClickListener(new EsViewPager.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
                 Log.d(TAG, "Clicked: " + position);
