@@ -18,7 +18,6 @@
 
 
 
-
     <declare-styleable name="EsTextView">
         <attr name="es_fontFace" />
         <attr name="es_textFormat" />
@@ -42,6 +41,14 @@
         <attr name="es_secondColor" format="color" />
         <attr name="es_cornerRadius" format="integer" />
         <attr name="es_pressColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="EsToolbar">
+        <attr name="es_left_icon1" format="integer" />
+        <attr name="es_left_icon2" format="integer" />
+        <attr name="es_left_icon3" format="integer" />
+        <attr name="es_logo" format="integer" />
+        <attr name="es_right_icon" format="integer" />
     </declare-styleable>
 
 </resources>
