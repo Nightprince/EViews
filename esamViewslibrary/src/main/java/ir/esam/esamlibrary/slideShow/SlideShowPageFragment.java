@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,13 +29,7 @@ public class SlideShowPageFragment extends Fragment {
                 false);
 
         EsImageView image = viewGroup.findViewById(R.id.img_slide_show_image);
-
-
-//        image.setBackgroundColor(Color.BLACK);
         image.setImageFormUrl(mSlideshowItem.getImgUrl());
-
-        //  image.setImageFormUrl("https://en.wikipedia.org/wiki/Tree#/media/File:Ash_Tree_-_geograph.org.uk_-_590710.jpg");
-
         return viewGroup;
     }
 
