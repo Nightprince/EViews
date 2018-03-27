@@ -7,9 +7,7 @@
         android:id="@+id/img_slide_show_image"
         android:background="@android:color/holo_blue_light"
         android:layout_width="match_parent"
-        android:layout_margin="20dp"
+        android:scaleType="centerCrop"
         android:layout_height="match_parent" />
-
-
 
 </LinearLayout>

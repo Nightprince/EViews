@@ -3,8 +3,6 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion 26
 
-
-
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 26
@@ -33,4 +31,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     compile 'com.android.support:support-annotations:27.1.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
+    compile 'me.relex:circleindicator:1.2.2@aar'
 }
