@@ -1,10 +1,14 @@
 package ir.esam.esamlibrary;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import ir.esam.esamlibrary.productsSlider.ProductSliderAdapter;
 
 /**
  * Created by hosseinAmini.
@@ -16,10 +20,19 @@ public abstract class EsAdapter<Holder extends RecyclerView.ViewHolder, DataSetT
     private ArrayList<DataSetType> mDataSets;
 
     public abstract void onBindViewHolder(Holder holder, int position, DataSetType dataSet, int viewType);
+    public abstract Holder onCreateViewHolder(View rootView, int viewType);
+    public abstract int getLayout(int viewType);
 
     @Override
     public void onBindViewHolder(Holder holder, int position) {
         onBindViewHolder(holder, position, mDataSets.get(position), getItemViewType(position));
+    }
+
+    @Override
+    public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View rootView = LayoutInflater.from(parent.getContext()).inflate(getLayout(viewType),
+                parent, false);
+        return onCreateViewHolder(rootView, viewType);
     }
 
     @Override

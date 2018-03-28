@@ -37,7 +37,7 @@ public class ProductSliderItem {
         return mImageUrl;
     }
 
-    public String getmTitle() {
+    public String getTitle() {
         return mTitle;
     }
 
