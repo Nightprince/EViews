@@ -16,6 +16,11 @@
         app:es_left_icon2="@drawable/ic_shopping_cart_black_24dp"
         app:es_left_icon3="@drawable/ic_shopping_cart_black_24dp" />
 
+    <ir.esam.esamlibrary.productsSlider.EsProductsSlider
+        android:id="@+id/product_slider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

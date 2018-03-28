@@ -12,6 +12,9 @@ import ir.esam.esamlibrary.EsTextView;
 import ir.esam.esamlibrary.EsToolbar;
 import ir.esam.esamlibrary.EsViewPager;
 import ir.esam.esamlibrary.methodParam.EsTextFormat;
+import ir.esam.esamlibrary.productsSlider.EsProductsSlider;
+import ir.esam.esamlibrary.productsSlider.ProductSliderAdapter;
+import ir.esam.esamlibrary.productsSlider.ProductSliderItem;
 import ir.esam.esamlibrary.slideShow.EsSlideShow;
 import ir.esam.esamlibrary.slideShow.SlideShowItem;
 
@@ -30,17 +33,32 @@ public class MainActivity extends AppCompatActivity {
         editText();
         slideShow();
         toolbar();
+        productSlider();
 
-        ArrayList<String> names = new ArrayList<>();
-        names.add("Hossein");
-        names.add("Mansoor");
-        names.add("Maryam");
+    }
 
-        names.add(3, "Ali");
+    private void productSlider() {
+        EsProductsSlider productsSlider = findViewById(R.id.product_slider);
+        productsSlider.setTitle("محصولات");
 
-        for(String name : names) {
-            Log.d(TAG, "Name is: " + name);
+        ArrayList<ProductSliderItem> productSliderItems = new ArrayList<>();
+        for(int i = 0; i < 10; i++) {
+            ProductSliderItem item = new ProductSliderItem();
+            item.setTitle("عنوان" + i);
+            item.setPrice("1000000");
+            item.setImageUrl("http://www.sciencemag.org/sites/default/files/styles/article_main_image_-_1280w__no_aspect_/public/cc_iStock-478639870_16x9.jpg?itok=y1oFCoHB");
+
+            productSliderItems.add(item);
         }
+
+        productsSlider.swapData(productSliderItems);
+
+        productsSlider.setOnItemClickListener(new ProductSliderAdapter.OnItemClickListener() {
+            @Override
+            public void onClick(ProductSliderItem item, int position) {
+                Log.d(TAG, "Title: " + item.getTitle());
+            }
+        });
 
     }
 

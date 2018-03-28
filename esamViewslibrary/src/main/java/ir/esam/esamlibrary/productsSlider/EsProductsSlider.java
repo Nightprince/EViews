@@ -11,8 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import ir.esam.esamlibrary.EsTextView;
 import ir.esam.esamlibrary.R;
+import ir.esam.esamlibrary.utility.RecyclerViewEqualSpace;
 
 /**
  * Created by hosseinAmini.
@@ -23,6 +27,7 @@ public class EsProductsSlider extends FrameLayout {
     private String mTitle;
     private EsTextView mTxtTitle;
     private RecyclerView mRecyclerProducts;
+    private ProductSliderAdapter mAdapter;
 
     public EsProductsSlider(@NonNull Context context) {
         super(context);
@@ -56,11 +61,15 @@ public class EsProductsSlider extends FrameLayout {
         mTxtTitle = rootView.findViewById(R.id.txt_title);
         mRecyclerProducts = rootView.findViewById(R.id.recycler_products);
 
+        mAdapter = new ProductSliderAdapter();
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),
                 LinearLayoutManager.HORIZONTAL, true);
 
+        mRecyclerProducts.setAdapter(mAdapter);
         mRecyclerProducts.setHasFixedSize(true);
+        mRecyclerProducts.addItemDecoration(new RecyclerViewEqualSpace(20));
         mRecyclerProducts.setLayoutManager(layoutManager);
+
 
         setTitle(mTitle);
     }
@@ -69,4 +78,21 @@ public class EsProductsSlider extends FrameLayout {
         mTitle = title;
         mTxtTitle.setText(mTitle);
     }
+
+    public void setOnItemClickListener(ProductSliderAdapter.OnItemClickListener onItemClickListener) {
+        mAdapter.setOnItemClickListener(onItemClickListener);
+    }
+
+    public void swapData(ProductSliderItem... products) {
+        mAdapter.swapData(products);
+    }
+
+    public void swapData(ArrayList<ProductSliderItem> products) {
+        mAdapter.swapData(products);
+    }
+
+    public ProductSliderAdapter getAdapter() {
+        return mAdapter;
+    }
+
 }

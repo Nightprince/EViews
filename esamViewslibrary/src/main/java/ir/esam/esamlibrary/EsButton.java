@@ -1,25 +1,21 @@
 package ir.esam.esamlibrary;
 
 import android.content.Context;
-import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.RippleDrawable;
-import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.StateListDrawable;
-import android.graphics.drawable.shapes.RoundRectShape;
 import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 
-import java.util.Arrays;
-
 import ir.esam.esamlibrary.methodParam.EsFontFace;
 import ir.esam.esamlibrary.utility.ColorUtility;
 import ir.esam.esamlibrary.utility.FontUtility;
 import ir.esam.esamlibrary.utility.OsVersionUtility;
+import ir.esam.esamlibrary.utility.RippleBackgroundUtility;
 
 /**
  * Created by hosseinAmini.
@@ -69,7 +65,7 @@ public class EsButton extends android.support.v7.widget.AppCompatButton {
     private void initialize() {
         this.setFontFace();
 
-        if(OsVersionUtility.isLollipopOrGreater()) {
+        if (OsVersionUtility.isLollipopOrGreater()) {
             setStateListAnimator(null);
         }
         setPadding(this.mPadding, this.mPadding, this.mPadding, this.mPadding);
@@ -79,7 +75,7 @@ public class EsButton extends android.support.v7.widget.AppCompatButton {
 
     public void setBackgroundColors(@ColorInt int... color) {
         this.mFirstColor = color[0];
-        if(color.length == 2) {
+        if (color.length == 2) {
             this.mSecondColor = color[1];
         }
         setBackgroundColor();
@@ -108,7 +104,7 @@ public class EsButton extends android.support.v7.widget.AppCompatButton {
 
     private void setBackgroundColor() {
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (OsVersionUtility.isLollipopOrGreater()) {
             setRippleBackground();
             return;
         }
@@ -116,24 +112,19 @@ public class EsButton extends android.support.v7.widget.AppCompatButton {
         setBackground();
     }
 
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void setRippleBackground() {
-        ColorStateList colors = new ColorStateList(new int[][]{new int[]{}},
-                new int[]{this.mRippleColor});
 
-        GradientDrawable defaultBg = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT,
-                new int[]{this.mFirstColor,
-                        this.mSecondColor == ContextCompat.getColor(getContext(),
-                                R.color.es_button_default_color) ? this.mFirstColor : this.mSecondColor});
-        defaultBg.setCornerRadius(this.mCornerRadius);
+        int[] backgroundColors = new int[]{this.mFirstColor,
+                this.mSecondColor == ContextCompat.getColor(getContext(),
+                        R.color.es_button_default_color) ? this.mFirstColor : this.mSecondColor};
 
-        float[] outerRadii = new float[8];
-        Arrays.fill(outerRadii, this.mCornerRadius);
-        RoundRectShape roundRectShape = new RoundRectShape(outerRadii, null, null);
-        ShapeDrawable mask           = new ShapeDrawable(roundRectShape);
-
-        RippleDrawable rippleDrawable =
-                new RippleDrawable(colors, defaultBg, mask);
+        RippleDrawable rippleDrawable = new RippleBackgroundUtility(getContext())
+                .setBackgroundColors(backgroundColors)
+                .setRadius(mCornerRadius)
+                .setRippleColor(mRippleColor)
+                .build();
 
         setBackground(rippleDrawable);
     }

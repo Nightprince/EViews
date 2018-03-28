@@ -9,11 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:orientation="horizontal"
-        android:paddingRight="10dp"
+        android:paddingRight="15dp"
         android:layout_gravity="center_vertical"
         android:gravity="center_vertical"
-        android:paddingLeft="10dp"
-        android:background="@color/es_button_default_ripple_color">
+        android:paddingLeft="10dp">
 
         <ir.esam.esamlibrary.EsButton
             android:id="@+id/btn_more"
@@ -21,8 +20,12 @@
             android:layout_height="wrap_content"
             android:background="@null"
             android:text="@string/more"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
             android:textColor="#1e71cf"
-            app:es_firstColor="#00000000"/>
+            app:es_firstColor="#00000000"
+            app:es_cornerRadius="0"
+            app:es_rippleColor="#c9c9c9"/>
 
         <ir.esam.esamlibrary.EsTextView
             android:id="@+id/txt_title"

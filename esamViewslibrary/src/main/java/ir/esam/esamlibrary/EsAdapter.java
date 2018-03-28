@@ -75,4 +75,8 @@ public abstract class EsAdapter<Holder extends RecyclerView.ViewHolder, DataSetT
         mDataSets.remove(dataSet);
     }
 
+    public ArrayList<DataSetType> getDataSets() {
+        return mDataSets;
+    }
+
 }

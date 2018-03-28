@@ -33,7 +33,7 @@ public class ProductSliderItem {
         return mId;
     }
 
-    public String getmImageUrl() {
+    public String getImageUrl() {
         return mImageUrl;
     }
 
@@ -41,7 +41,7 @@ public class ProductSliderItem {
         return mTitle;
     }
 
-    public String getmPrice() {
+    public String getPrice() {
         return mPrice;
     }
 }
