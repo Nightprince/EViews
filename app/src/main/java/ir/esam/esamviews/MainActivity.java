@@ -30,6 +30,18 @@ public class MainActivity extends AppCompatActivity {
         editText();
         slideShow();
         toolbar();
+
+        ArrayList<String> names = new ArrayList<>();
+        names.add("Hossein");
+        names.add("Mansoor");
+        names.add("Maryam");
+
+        names.add(3, "Ali");
+
+        for(String name : names) {
+            Log.d(TAG, "Name is: " + name);
+        }
+
     }
 
     private void toolbar() {
