@@ -60,6 +60,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        productsSlider.setOnMoreClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "More Clicked");
+            }
+        });
+
     }
 //
 //    private void toolbar() {

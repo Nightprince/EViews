@@ -12,8 +12,8 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
+import ir.esam.esamlibrary.EsButton;
 import ir.esam.esamlibrary.EsTextView;
 import ir.esam.esamlibrary.R;
 import ir.esam.esamlibrary.utility.RecyclerViewEqualSpace;
@@ -24,10 +24,13 @@ import ir.esam.esamlibrary.utility.RecyclerViewEqualSpace;
  */
 public class EsProductsSlider extends FrameLayout {
 
+    private EsButton mBtnMore;
     private String mTitle;
     private EsTextView mTxtTitle;
     private RecyclerView mRecyclerProducts;
     private ProductSliderAdapter mAdapter;
+
+    private OnClickListener mOnMoreClickListener;
 
     public EsProductsSlider(@NonNull Context context) {
         super(context);
@@ -58,6 +61,7 @@ public class EsProductsSlider extends FrameLayout {
         View rootView = LayoutInflater.from(getContext()).inflate(R.layout.es_product_slider,
                 this, true);
 
+        mBtnMore = rootView.findViewById(R.id.btn_more);
         mTxtTitle = rootView.findViewById(R.id.txt_title);
         mRecyclerProducts = rootView.findViewById(R.id.recycler_products);
 
@@ -70,6 +74,14 @@ public class EsProductsSlider extends FrameLayout {
         mRecyclerProducts.addItemDecoration(new RecyclerViewEqualSpace(20));
         mRecyclerProducts.setLayoutManager(layoutManager);
 
+        mBtnMore.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mOnMoreClickListener != null) {
+                    mOnMoreClickListener.onClick(view);
+                }
+            }
+        });
 
         setTitle(mTitle);
     }
@@ -81,6 +93,10 @@ public class EsProductsSlider extends FrameLayout {
 
     public void setOnItemClickListener(ProductSliderAdapter.OnItemClickListener onItemClickListener) {
         mAdapter.setOnItemClickListener(onItemClickListener);
+    }
+
+    public void setOnMoreClickListener(OnClickListener onMoreClickListener) {
+        mOnMoreClickListener = onMoreClickListener;
     }
 
     public void swapData(ProductSliderItem... products) {
