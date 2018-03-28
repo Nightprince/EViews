@@ -1,5 +1,9 @@
 package ir.esam.esamlibrary.productsSlider;
 
+import android.graphics.drawable.RippleDrawable;
+import android.os.Build;
+import android.support.annotation.ColorRes;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -7,6 +11,7 @@ import ir.esam.esamlibrary.EsAdapter;
 import ir.esam.esamlibrary.EsImageView;
 import ir.esam.esamlibrary.EsTextView;
 import ir.esam.esamlibrary.R;
+import ir.esam.esamlibrary.utility.RippleBackgroundUtility;
 
 /**
  * Created by hosseinAmini.

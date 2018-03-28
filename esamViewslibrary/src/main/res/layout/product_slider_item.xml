@@ -16,7 +16,7 @@
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@drawable/prudcut_slider_bg"
+            android:background="@drawable/product_slider_bg"
             android:minHeight="210dp"
             android:padding="5dp">
 

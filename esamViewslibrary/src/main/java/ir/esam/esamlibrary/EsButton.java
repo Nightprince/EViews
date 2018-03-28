@@ -1,15 +1,21 @@
 package ir.esam.esamlibrary;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.RippleDrawable;
+import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.StateListDrawable;
+import android.graphics.drawable.shapes.RoundRectShape;
 import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
+import android.util.Log;
+
+import java.util.Arrays;
 
 import ir.esam.esamlibrary.methodParam.EsFontFace;
 import ir.esam.esamlibrary.utility.ColorUtility;
@@ -30,6 +36,7 @@ public class EsButton extends android.support.v7.widget.AppCompatButton {
 
     public EsButton(Context context) {
         super(context);
+        initialize();
     }
 
     public EsButton(Context context, AttributeSet attrs) {
@@ -54,16 +61,18 @@ public class EsButton extends android.support.v7.widget.AppCompatButton {
             array.recycle();
         }
 
+
         initialize();
     }
 
     public EsButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+
+        initialize();
     }
 
-
     private void initialize() {
-        this.setFontFace();
+        setFontFace();
 
         if (OsVersionUtility.isLollipopOrGreater()) {
             setStateListAnimator(null);
@@ -73,38 +82,9 @@ public class EsButton extends android.support.v7.widget.AppCompatButton {
         setBackgroundColor();
     }
 
-    public void setBackgroundColors(@ColorInt int... color) {
-        this.mFirstColor = color[0];
-        if (color.length == 2) {
-            this.mSecondColor = color[1];
-        }
-        setBackgroundColor();
-    }
-
-    /**
-     * Set font
-     */
-    private void setFontFace() {
-        String fontFamily = FontUtility.IRANSANS_LIGHT;
-
-        switch (mFontFace) {
-            case EsFontFace.IRAN_SANS_ULTRA_LIGHT: {
-                fontFamily = FontUtility.IRANSANS_ULTRA_LIGHT;
-                break;
-            }
-            case EsFontFace.IRAN_SANS_MEDIUM: {
-                fontFamily = FontUtility.IRANSANS_MEDIUM;
-                break;
-            }
-        }
-
-        setTypeface(FontUtility.getFont(getContext(), fontFamily));
-    }
-
-
     private void setBackgroundColor() {
 
-        if (OsVersionUtility.isLollipopOrGreater()) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             setRippleBackground();
             return;
         }
@@ -112,21 +92,36 @@ public class EsButton extends android.support.v7.widget.AppCompatButton {
         setBackground();
     }
 
-
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void setRippleBackground() {
+        // Todo: Why this line cause error in pre lollipop? :|
+//        RippleDrawable rippleDrawable = new RippleBackgroundUtility()
+//                .setBackgroundColors(new int[]{this.mFirstColor,
+//                        this.mSecondColor == ContextCompat.getColor(getContext(),
+//                                R.color.es_button_default_color) ? this.mFirstColor : this.mSecondColor})
+//                .setRadius(mCornerRadius)
+//                .setRippleColor(mRippleColor)
+//                .build();
+//        setBackground(rippleDrawable);
 
-        int[] backgroundColors = new int[]{this.mFirstColor,
+
+        int[] mBackgroundColors = new int[]{this.mFirstColor,
                 this.mSecondColor == ContextCompat.getColor(getContext(),
                         R.color.es_button_default_color) ? this.mFirstColor : this.mSecondColor};
 
-        RippleDrawable rippleDrawable = new RippleBackgroundUtility(getContext())
-                .setBackgroundColors(backgroundColors)
-                .setRadius(mCornerRadius)
-                .setRippleColor(mRippleColor)
-                .build();
+        ColorStateList colors = new ColorStateList(new int[][]{new int[]{}},
+                new int[]{mRippleColor});
 
-        setBackground(rippleDrawable);
+        GradientDrawable defaultBg = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT,
+                mBackgroundColors);
+        defaultBg.setCornerRadius(mCornerRadius);
+
+        float[] outerRadii = new float[8];
+        Arrays.fill(outerRadii, mCornerRadius);
+        RoundRectShape roundRectShape = new RoundRectShape(outerRadii, null, null);
+        ShapeDrawable mask = new ShapeDrawable(roundRectShape);
+
+        setBackground(new RippleDrawable(colors, defaultBg, mask));
     }
 
     private void setBackground() {
@@ -148,5 +143,27 @@ public class EsButton extends android.support.v7.widget.AppCompatButton {
 
         setBackground(stateListDrawable);
     }
+
+
+    /**
+     * Set font
+     */
+    private void setFontFace() {
+        String fontFamily = FontUtility.IRANSANS_LIGHT;
+
+        switch (mFontFace) {
+            case EsFontFace.IRAN_SANS_ULTRA_LIGHT: {
+                fontFamily = FontUtility.IRANSANS_ULTRA_LIGHT;
+                break;
+            }
+            case EsFontFace.IRAN_SANS_MEDIUM: {
+                fontFamily = FontUtility.IRANSANS_MEDIUM;
+                break;
+            }
+        }
+
+        setTypeface(FontUtility.getFont(getContext(), fontFamily));
+    }
+
 
 }
