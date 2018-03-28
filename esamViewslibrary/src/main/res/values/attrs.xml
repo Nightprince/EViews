@@ -13,6 +13,7 @@
         <enum name="currency" value="1" />
         <enum name="card_number" value="2" />
     </attr>
+    <attr name="es_title" format="string" />
 
 
 
@@ -49,6 +50,10 @@
         <attr name="es_left_icon3" format="integer" />
         <attr name="es_logo" format="integer" />
         <attr name="es_right_icon" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="EsProductsSlider">
+        <attr name="es_title" />
     </declare-styleable>
 
 </resources>
