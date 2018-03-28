@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:paddingRight="10dp"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:background="@color/es_button_default_ripple_color">
+
+        <ir.esam.esamlibrary.EsButton
+            android:id="@+id/btn_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="@string/more"
+            android:textColor="#1e71cf"
+            app:es_firstColor="#00000000"/>
+
+        <ir.esam.esamlibrary.EsTextView
+            android:id="@+id/txt_title"
+            android:layout_width="0dp"
+            android:gravity="right"
+            android:layout_height="wrap_content"
+            android:text="عنوان"
+            android:layout_weight="1"
+            app:es_fontFace="iransans_medium"/>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_products"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:scrollbars="none"/>
+
+
+</LinearLayout>
