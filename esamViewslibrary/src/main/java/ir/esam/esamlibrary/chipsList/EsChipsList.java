@@ -1,6 +1,7 @@
 package ir.esam.esamlibrary.chipsList;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,16 +16,19 @@ import java.util.ArrayList;
 import ir.esam.esamlibrary.EsAdapter;
 import ir.esam.esamlibrary.R;
 import ir.esam.esamlibrary.productsSlider.ProductSliderAdapter;
+import ir.esam.esamlibrary.utility.RecyclerViewEqualSpace;
 
 /**
  * Created by hosseinAmini.
  * EsamViews | Copyrights 2018 Esam.ir Crop.
  */
-public abstract class EsChipsList<DataSetType extends ChipsListItem> extends FrameLayout{
+public abstract class EsChipsList<DataSetType extends ChipsListItem> extends FrameLayout {
 
+    private int mItemMargin;
     private RecyclerView mRecyclerChips;
 
     public abstract ChipsListAdapter getAdapter();
+
     public abstract void createAdapter();
 
     public EsChipsList(@NonNull Context context) {
@@ -34,6 +38,16 @@ public abstract class EsChipsList<DataSetType extends ChipsListItem> extends Fra
 
     public EsChipsList(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.EsChipsList);
+
+        try {
+            mItemMargin = typedArray.getDimensionPixelOffset(R.styleable.EsChipsList_es_itemMargin,
+                    20);
+        } finally {
+            typedArray.recycle();
+        }
+
         initialize();
     }
 
@@ -55,6 +69,7 @@ public abstract class EsChipsList<DataSetType extends ChipsListItem> extends Fra
         mRecyclerChips = rootView.findViewById(R.id.recycler_chips);
         mRecyclerChips.setAdapter(getAdapter());
         mRecyclerChips.setHasFixedSize(hasFixedSize());
+        mRecyclerChips.addItemDecoration(new RecyclerViewEqualSpace(mItemMargin));
         mRecyclerChips.setLayoutManager(layoutManager);
 
     }

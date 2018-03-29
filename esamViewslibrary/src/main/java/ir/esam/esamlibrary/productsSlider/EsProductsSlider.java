@@ -24,8 +24,8 @@ import ir.esam.esamlibrary.utility.RecyclerViewEqualSpace;
  */
 public class EsProductsSlider extends FrameLayout {
 
-    private EsButton mBtnMore;
     private String mTitle;
+    private EsButton mBtnMore;
     private EsTextView mTxtTitle;
     private RecyclerView mRecyclerProducts;
     private ProductSliderAdapter mAdapter;

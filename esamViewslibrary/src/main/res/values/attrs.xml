@@ -56,4 +56,8 @@
         <attr name="es_title" />
     </declare-styleable>
 
+    <declare-styleable name="EsChipsList">
+        <attr name="es_itemMargin" format="dimension" />
+    </declare-styleable>
+
 </resources>
