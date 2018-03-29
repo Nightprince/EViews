@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         textView();
 //        editText();
-//        slideShow();
+        slideShow();
 //        toolbar();
         productSlider();
 
@@ -79,35 +79,35 @@ public class MainActivity extends AppCompatActivity {
 //        });
 //    }
 //
-//    private void slideShow() {
-//        final EsSlideShow slideShow = findViewById(R.id.slide_show);
-//
-//        ArrayList<SlideShowItem> items = new ArrayList<>();
-//
-//        for(int i = 0; i < 4; i++) {
-//            items.add(new SlideShowItem("http://www.sciencemag.org/sites/default/files/styles/article_main_image_-_1280w__no_aspect_/public/cc_iStock-478639870_16x9.jpg?itok=y1oFCoHB"));
-//        }
-//
-//        slideShow.addItems(items.get(0));
-//        slideShow.addItems(items.get(1));
-//        slideShow.addItems(items.get(2));
-//        slideShow.addItems(items.get(3));
-//
-//        txtTest.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                slideShow.addItems(new SlideShowItem("http://www.sciencemag.org/sites/default/files/styles/article_main_image_-_1280w__no_aspect_/public/cc_iStock-478639870_16x9.jpg?itok=y1oFCoHB"));
-//            }
-//        });
-//
-//        slideShow.setOnItemClickListener(new EsViewPager.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(int position) {
-//                Log.d(TAG, "Clicked: " + position);
-//            }
-//        });
-//
-//    }
+    private void slideShow() {
+        final EsSlideShow slideShow = findViewById(R.id.slide_show);
+
+        ArrayList<SlideShowItem> items = new ArrayList<>();
+
+        for(int i = 0; i < 4; i++) {
+            items.add(new SlideShowItem("http://www.sciencemag.org/sites/default/files/styles/article_main_image_-_1280w__no_aspect_/public/cc_iStock-478639870_16x9.jpg?itok=y1oFCoHB"));
+        }
+
+        slideShow.addItems(items.get(0));
+        slideShow.addItems(items.get(1));
+        slideShow.addItems(items.get(2));
+        slideShow.addItems(items.get(3));
+
+        txtTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                slideShow.addItems(new SlideShowItem("http://www.sciencemag.org/sites/default/files/styles/article_main_image_-_1280w__no_aspect_/public/cc_iStock-478639870_16x9.jpg?itok=y1oFCoHB"));
+            }
+        });
+
+        slideShow.setOnItemClickListener(new EsViewPager.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Log.d(TAG, "Clicked: " + position);
+            }
+        });
+
+    }
 //
     private void textView() {
         txtTest = findViewById(R.id.txt_test);

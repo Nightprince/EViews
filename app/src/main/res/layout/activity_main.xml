@@ -16,52 +16,63 @@
         app:es_left_icon2="@drawable/ic_shopping_cart_black_24dp"
         app:es_left_icon3="@drawable/ic_shopping_cart_black_24dp" />
 
-    <ir.esam.esamlibrary.productsSlider.EsProductsSlider
-        android:id="@+id/product_slider"
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:orientation="vertical">
-
-        <ir.esam.esamlibrary.EsButton
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#fff"
-            android:layout_marginTop="10dp"
-            android:text="Hello"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <ir.esam.esamlibrary.slideShow.EsSlideShow
-            android:id="@+id/slide_show"
-            android:layout_width="match_parent"
-            android:layout_marginTop="5dp"
-            android:layout_height="150dp">
+            <ir.esam.esamlibrary.productsSlider.EsProductsSlider
+                android:id="@+id/product_slider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-        </ir.esam.esamlibrary.slideShow.EsSlideShow>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="vertical">
 
-        <ir.esam.esamlibrary.EsTextView
-            android:id="@+id/txt_test"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="5022291056267287"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:es_textFormat="card_number"
-            app:layout_constraintTop_toTopOf="parent" />
+                <ir.esam.esamlibrary.EsButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#fff"
+                    android:layout_marginTop="10dp"
+                    android:text="Hello"/>
 
-        <ir.esam.esamlibrary.EsEditText
-            android:id="@+id/edt_test"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:es_fontFace="android_default_font"
-            app:es_textFormat="card_number"/>
+                <ir.esam.esamlibrary.slideShow.EsSlideShow
+                    android:id="@+id/slide_show"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="150dp">
 
-    </LinearLayout>
+                </ir.esam.esamlibrary.slideShow.EsSlideShow>
 
+                <ir.esam.esamlibrary.EsTextView
+                    android:id="@+id/txt_test"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5022291056267287"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:es_textFormat="card_number"
+                    app:layout_constraintTop_toTopOf="parent" />
 
+                <ir.esam.esamlibrary.EsEditText
+                    android:id="@+id/edt_test"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:es_fontFace="android_default_font"
+                    app:es_textFormat="card_number"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
 
 </LinearLayout>
