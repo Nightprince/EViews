@@ -11,6 +11,11 @@ import ir.esam.esamlibrary.EsEditText;
 import ir.esam.esamlibrary.EsTextView;
 import ir.esam.esamlibrary.EsToolbar;
 import ir.esam.esamlibrary.EsViewPager;
+import ir.esam.esamlibrary.chipsList.ChipsListAdapter;
+import ir.esam.esamlibrary.chipsList.ChipsListItem;
+import ir.esam.esamlibrary.chipsList.categoryChipsList.CategoryChipsListAdapter;
+import ir.esam.esamlibrary.chipsList.categoryChipsList.CategoryChipsListItem;
+import ir.esam.esamlibrary.chipsList.categoryChipsList.EsCategoryChipsList;
 import ir.esam.esamlibrary.methodParam.EsTextFormat;
 import ir.esam.esamlibrary.productsSlider.EsProductsSlider;
 import ir.esam.esamlibrary.productsSlider.ProductSliderAdapter;
@@ -34,6 +39,28 @@ public class MainActivity extends AppCompatActivity {
         slideShow();
 //        toolbar();
         productSlider();
+        categoryChipsList();
+
+    }
+
+    private void categoryChipsList() {
+        EsCategoryChipsList categoryChipsList = findViewById(R.id.category_chips_list);
+
+        ArrayList<CategoryChipsListItem> chipsListItems = new ArrayList<>();
+
+        for(int i = 0; i < 10; i++) {
+            CategoryChipsListItem item = new CategoryChipsListItem();
+            item.setTitle("Title: " + i);
+            chipsListItems.add(item);
+        }
+
+        categoryChipsList.swapData(chipsListItems);
+        categoryChipsList.setOnItemClickListener(new ChipsListAdapter.OnItemClickListener() {
+            @Override
+            public void onClick(View view, ChipsListItem item, int position) {
+                Log.d(TAG, "Position: " + position + " Title: " + item.getTitle());
+            }
+        });
 
     }
 
