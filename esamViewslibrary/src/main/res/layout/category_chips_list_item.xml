@@ -2,12 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="@drawable/category_chips_list_item_bg"
+    android:paddingRight="15dp"
+    android:paddingLeft="15dp"
+    android:paddingTop="7dp"
+    android:paddingBottom="7dp"
     android:orientation="vertical">
 
     <ir.esam.esamlibrary.EsTextView
         android:id="@+id/txt_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="#fff"
         android:text="Hello" />
 
 </LinearLayout>
