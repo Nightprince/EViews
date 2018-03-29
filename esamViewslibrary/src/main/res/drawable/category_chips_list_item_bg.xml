@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <solid android:color="#189c46" />
-    <corners android:radius="180dp" />
-
-</shape>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/category_chips_list_item_bg_press_state"
+        android:state_pressed="true" />
+    <item android:drawable="@drawable/category_chips_list_item_bg_normal_state" />
+</selector>
