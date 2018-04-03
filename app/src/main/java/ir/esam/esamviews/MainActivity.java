@@ -50,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
         for(int i = 0; i < 10; i++) {
             CategoryChipsListItem item = new CategoryChipsListItem();
-            item.setTitle("Title: " + i);
+            item.setTitle("مزایدات دو هزار تومانی " + i);
+            item.setImage(getResources().getDrawable(R.drawable.ic_launcher_background));
             chipsListItems.add(item);
         }
 

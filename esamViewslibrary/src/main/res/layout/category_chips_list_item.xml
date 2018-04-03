@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="60dp"
     android:layout_height="wrap_content"
     android:background="@drawable/category_chips_list_item_bg"
-    android:paddingRight="15dp"
-    android:paddingLeft="15dp"
     android:paddingTop="7dp"
+    android:gravity="center"
     android:paddingBottom="7dp"
     android:orientation="vertical">
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/img_category_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_android_black_24dp" />
+
     <ir.esam.esamlibrary.EsTextView
         android:id="@+id/txt_title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#fff"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:textSize="11dp"
+        android:maxLines="2"
+        android:textColor="#000"
         android:text="Hello" />
 
 </LinearLayout>

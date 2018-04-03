@@ -2,6 +2,7 @@ package ir.esam.esamlibrary.chipsList.categoryChipsList;
 
 import android.view.View;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import ir.esam.esamlibrary.EsTextView;
 import ir.esam.esamlibrary.R;
 import ir.esam.esamlibrary.chipsList.ChipsListAdapter;
@@ -15,9 +16,15 @@ public class CategoryChipsListAdapter extends ChipsListAdapter<CategoryChipsList
         CategoryChipsListItem> {
 
     @Override
+    public int getLayout(int viewType) {
+        return R.layout.category_chips_list_item;
+    }
+
+    @Override
     public void onBindViewHolder(ViewHolder holder, int position, CategoryChipsListItem dataSet,
                                  int viewType) {
         holder.txtTitle.setText(dataSet.getTitle());
+        holder.imgProductImage.setImageDrawable(dataSet.getImage());
     }
 
     @Override
@@ -25,18 +32,17 @@ public class CategoryChipsListAdapter extends ChipsListAdapter<CategoryChipsList
         return new ViewHolder(rootView);
     }
 
-    @Override
-    public int getLayout(int viewType) {
-        return R.layout.category_chips_list_item;
-    }
+
 
     public class ViewHolder extends ChipsListViewHolder {
 
         EsTextView txtTitle;
+        CircleImageView imgProductImage;
 
         public ViewHolder(View itemView) {
             super(itemView);
             txtTitle = itemView.findViewById(R.id.txt_title);
+            imgProductImage = itemView.findViewById(R.id.img_category_image);
         }
     }
 
