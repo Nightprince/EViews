@@ -41,6 +41,10 @@
                 android:padding="10dp"
                 android:orientation="vertical">
 
+                <ir.esam.esamlibrary.EsNavHeader
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp" />
+
                 <ir.esam.esamlibrary.EsButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
