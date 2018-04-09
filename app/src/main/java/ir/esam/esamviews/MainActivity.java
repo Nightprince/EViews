@@ -8,6 +8,7 @@ import android.view.View;
 import java.util.ArrayList;
 
 import ir.esam.esamlibrary.EsEditText;
+import ir.esam.esamlibrary.EsNavHeader;
 import ir.esam.esamlibrary.EsTextView;
 import ir.esam.esamlibrary.EsToolbar;
 import ir.esam.esamlibrary.EsViewPager;
@@ -40,7 +41,13 @@ public class MainActivity extends AppCompatActivity {
 //        toolbar();
         productSlider();
         categoryChipsList();
+        header();
 
+    }
+
+    private void header() {
+        EsNavHeader header = findViewById(R.id.header);
+        header.setUserInfo("Hossein", null);
     }
 
     private void categoryChipsList() {

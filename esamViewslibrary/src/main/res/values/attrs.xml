@@ -14,8 +14,8 @@
         <enum name="card_number" value="2" />
     </attr>
     <attr name="es_title" format="string" />
-
-
+    <attr name="es_placeholder" format="integer" />
+    <attr name="es_error_placeholder" format="integer" />
 
 
 
@@ -30,8 +30,13 @@
     </declare-styleable>
     
     <declare-styleable name="EsImageView">
-        <attr name="es_placeholder" format="integer" />
-        <attr name="es_error_placeholder" format="integer" />
+        <attr name="es_placeholder" />
+        <attr name="es_error_placeholder"/>
+    </declare-styleable>
+
+    <declare-styleable name="EsCircleImageView">
+        <attr name="es_placeholder" />
+        <attr name="es_error_placeholder"/>
     </declare-styleable>
 
     <declare-styleable name="EsButton">
