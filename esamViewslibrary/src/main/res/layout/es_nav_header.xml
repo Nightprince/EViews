@@ -66,6 +66,7 @@
         android:gravity="right|center_vertical">
 
         <ir.esam.esamlibrary.EsImageView
+            android:id="@+id/img_arrow"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:src="@drawable/ic_arrow_drop_down"/>
@@ -82,7 +83,6 @@
             android:text="محمد حسین امینی"/>
 
         <ir.esam.esamlibrary.EsImageView
-            android:id="@+id/img_arrow"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:src="@drawable/ic_person"/>
