@@ -77,7 +77,7 @@ public class EsToolbar extends Toolbar implements View.OnClickListener {
         mImgLeftIcon3.setOnClickListener(this);
         mImgRightIcon.setOnClickListener(this);
 
-        setBackgroundColor(Color.WHITE);
+        setBackgroundColor(Color.BLACK);
         setContentInsetsAbsolute(0, 0);
     }
 
@@ -113,7 +113,7 @@ public class EsToolbar extends Toolbar implements View.OnClickListener {
         mImgLogo.setImageDrawable(logo);
     }
 
-    public void setRightIcon(@NonNull Drawable icon) {
+    public void setRightIcon(Drawable icon) {
         if (icon == null) {
             return;
         }
